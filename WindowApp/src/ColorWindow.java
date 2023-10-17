@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class ColorWindow extends JFrame{
-//    ColorSpace colorSpace = ColorSpace.getInstance(ColorSpace.CS_LINEAR_RGB);
     private JPanel panel1;
     private JSlider slider1;
     private JSlider slider2;
@@ -100,7 +99,6 @@ public class ColorWindow extends JFrame{
                     setSliderValueCMYK(Integer.parseInt(textField2.getText()), Integer.parseInt(textField3.getText()), Integer.parseInt(textField4.getText()), Integer.parseInt(textField5.getText()));
                     Color color = cmykToRgb(slider4.getValue(), slider5.getValue(), slider6.getValue(), slider7.getValue());
                     textField1.setBackground(color);
-                    //textField9.setBackground(cmykToRgb(slider4.getValue(), slider5.getValue(),slider6.getValue(),slider7.getValue()));
                     setRGB(color.getRed(), color.getGreen(), color.getBlue());
                     setCMYK(slider4.getValue(), slider5.getValue(), slider6.getValue(), slider7.getValue());
                     float[] arr = CMYKtoHSL(slider4.getValue(), slider5.getValue(), slider6.getValue(), slider7.getValue());
@@ -126,7 +124,6 @@ public class ColorWindow extends JFrame{
                     int[] arr = HSLtoCMYK(slider8.getValue(), slider9.getValue(), slider10.getValue());
                     setCMYK(arr[0], arr[1], arr[2], arr[3]);
                     setHSL(slider8.getValue(), slider9.getValue(), slider10.getValue());
-                    //Color color1 = HLStoRGB(new int[] {slider8.getValue(), slider9.getValue(),slider10.getValue()});
                     setSliderValueRGB(color1.getRed(), color1.getGreen(), color1.getBlue());
                     setSliderValueCMYK(arr[0], arr[1], arr[2], arr[3]);
                 }
@@ -136,7 +133,6 @@ public class ColorWindow extends JFrame{
             @Override
             public void mouseDragged(MouseEvent e) {
                 super.mouseDragged(e);
-                //System.out.println("123");
                 textField1.setBackground(new Color(slider1.getValue(), slider2.getValue(),slider3.getValue()));
                 setRGB(slider1.getValue(), slider2.getValue(),slider3.getValue());
                 int[] arr = RGBtoCMYK(slider1.getValue(), slider2.getValue(),slider3.getValue());
@@ -155,7 +151,6 @@ public class ColorWindow extends JFrame{
             public void mouseDragged(MouseEvent e) {
                 Color color = cmykToRgb(slider4.getValue(), slider5.getValue(),slider6.getValue(),slider7.getValue());
                 textField1.setBackground(color);
-                //textField9.setBackground(cmykToRgb(slider4.getValue(), slider5.getValue(),slider6.getValue(),slider7.getValue()));
                 setRGB(color.getRed(),color.getGreen(),color.getBlue());
                 setCMYK(slider4.getValue(), slider5.getValue(),slider6.getValue(),slider7.getValue());
                 float[] arr = CMYKtoHSL(slider4.getValue(), slider5.getValue(),slider6.getValue(),slider7.getValue());
@@ -177,7 +172,6 @@ public class ColorWindow extends JFrame{
                 int[] arr = HSLtoCMYK(slider8.getValue(), slider9.getValue(),slider10.getValue());
                 setCMYK(arr[0],arr[1],arr[2],arr[3]);
                 setHSL(slider8.getValue(), slider9.getValue(),slider10.getValue());
-                //Color color1 = HLStoRGB(new int[] {slider8.getValue(), slider9.getValue(),slider10.getValue()});
                 setSliderValueRGB(color1.getRed(),color1.getGreen(),color1.getBlue());
                 setSliderValueCMYK(arr[0],arr[1],arr[2],arr[3]);
             }
@@ -187,13 +181,7 @@ public class ColorWindow extends JFrame{
         slider10.addMouseMotionListener(mouseMotionListener2);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        //slider1.setEnabled(false);
-        //panel1.add(panel2);
-        //panel3.setVisible(false);
-        //panel1.setVisible(false);
-        //textField9.setBackground(cmykToRgb(10,100,10,100));
     }
-//    Color color = new Color(100,100,100);
     public static void main(String[] args){
         new ColorWindow();
     }
